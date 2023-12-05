@@ -1,4 +1,4 @@
-version=1.0.2
+version=1.0.0
 
 generate:
 	$(MAKE) -C ./modules/php-client-generator/ generate-php-client service=product-configurator version=${version}
