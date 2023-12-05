@@ -2,14 +2,15 @@
   "swagger": "2.0",
   "info": {
     "title": "Product Configurator Service",
+    "description": "## Introduction\n\nThis comprehensive guide will equip you with the knowledge to integrate and leverage our Product Configurator Service in your applications.\n\n## Quick Start\n\nGet up and running in no time! Follow these steps to kickstart your integration:\n\n1. **Authentication:** Obtain your integration JWT to authenticate your requests.\n2. **Client Libraries:** Explore our GitHub repositories to grab client libraries in your preferred programming language.\n3. **API Overview:** Familiarize yourself with our RESTful API using the OpenAPI specification.\n\n## Integration\n\n### API Overview\n\nOur RESTful API is the gateway to unlocking the full potential of Product Configurator. Check out the detailed [API Reference](/docs/category/configurator) for a granular understanding of each endpoint and request/response format.\n\n### Client Libraries\n\nTo expedite your integration process, we provide client libraries for various programming languages. Find the one that suits your stack in our [GitHub repositories](https://github.com/Gemini-Commerce).\n\n### Authentication\n\nSecurity is paramount. Learn how to authenticate your requests using JWT. This ensures a secure and reliable connection between your application and Product Configurator.\n\n## Configuration Management\n\n### Configurator Lifecycle\n\nUnderstand the lifecycle of configurators, from draft to active and deleted. This flexibility allows you to manage configurations at your own pace.\n\n### Steps and Options\n\nConfigure product steps with ease and define options effortlessly. Explore the power of dependencies to create dynamic and intuitive configurations.\n\n### Matrices\n\nDelve into matrices—your secret weapon. Explore price and weight matrices, and learn how configured steps influence properties and pricing.\n\n### Price Management\n\nUnleash dynamic pricing with our versatile price matrices. From fixed prices to incremental structures, adapt to diverse pricing models effortlessly.\n\n## Security\n\nYour data is in safe hands. Discover how Product Configurator ensures security through JWT authentication, safeguarding your sensitive information.\n\n## Backward Compatibility\n\nStay ahead of the curve. Learn about our versioning strategy, providing backward compatibility while allowing our service to evolve seamlessly.\n\n## Developer Support\n\nHave questions? Need assistance? Write to us at [info@gemini-commerce.com](mailto:info@gemini-commerce.com) and we will get back to you.",
     "version": "v1",
     "contact": {
       "name": "Gemini Team",
       "email": "info@gemini-commerce.com"
     },
     "license": {
-      "name": "Gemini fair use license",
-      "url": "https://gemini-commerce.com/api/fair-use-license"
+      "name": "AGPL-3.0",
+      "url": "https://www.gnu.org/licenses/agpl-3.0.en.html"
     }
   },
   "host": "product-configurator.api.gogemini.io",
@@ -26,12 +27,26 @@
   "paths": {
     "/v1/{tenantId}/configurator/{configuratorId}": {
       "delete": {
+        "summary": "Delete Configurator",
+        "description": "Delete a product configurator by specifying the tenant and configurator IDs. Ensure precise removal of unwanted configurations with a straightforward DELETE request.",
         "operationId": "ProductConfigurator_DeleteConfigurator",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorconfiguratorDeleteResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -56,16 +71,41 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "configurator"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       },
       "put": {
+        "summary": "Update Configurator",
+        "description": "Modify an existing product configurator by specifying the tenant and configurator IDs. Use a PUT request with the updated configuration details in the body to seamlessly update and manage product configurations",
         "operationId": "ProductConfigurator_UpdateConfigurator",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorconfiguratorEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -98,18 +138,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "configurator"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/matrices": {
       "post": {
+        "summary": "List Matrices",
+        "description": "Retrieve a list of matrices for a specific configurator based on tenant and configurator IDs. Customize results by specifying page size for efficient pagination. Submit an empty body to get all matrices associated with the configurator. Streamline matrix management effortlessly.",
         "operationId": "ProductConfigurator_ListMatrices",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/matrixListMatricesResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -149,18 +214,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "matrix"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/configurator/{configuratorId}/step/create": {
       "post": {
+        "summary": "Create Step",
+        "description": "Add a new step to an existing product configurator by specifying the tenant and configurator IDs. Utilize a POST request with the required step details in the body to seamlessly extend the configuration process.",
         "operationId": "ProductConfigurator_CreateStep",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorstepEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -193,18 +283,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "step"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/configurator/{configuratorId}/step/create/bulk": {
       "post": {
+        "summary": "Bulk Create Steps",
+        "description": "Add multiple steps to an existing product configurator simultaneously. Submit a POST request with the necessary step details in the body to efficiently extend the configuration process in bulk. Simplify large-scale configuration management effortlessly.",
         "operationId": "ProductConfigurator_BulkCreateSteps",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorstepBulkCreateResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -237,18 +352,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "step"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/dependency/{dependencyId}": {
       "delete": {
+        "summary": "Delete Dependency",
+        "description": "Remove a specific dependency by specifying the tenant and dependency IDs. Ensure precision in dependency management with a straightforward DELETE request, simplifying the elimination of unwanted configuration logic.",
         "operationId": "ProductConfigurator_DeleteDependency",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratordependencyDeleteResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -273,16 +413,41 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "dependency"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       },
       "put": {
+        "summary": "Update Dependency",
+        "description": "Modify an existing dependency by specifying the tenant and dependency IDs. Utilize a PUT request with updated dependency details in the body for seamless customization and fine-tuning of your product configurations.",
         "operationId": "ProductConfigurator_UpdateDependency",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratordependencyEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -315,18 +480,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "dependency"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/matrix/create": {
       "post": {
+        "summary": "Create Matrix",
+        "description": "Establish a new matrix by specifying the tenant ID. Utilize a POST request with the required matrix details in the body for seamless customization and expansion of matrix configurations.",
         "operationId": "ProductConfigurator_CreateMatrix",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -353,18 +543,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "matrix"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/matrix/{matrixId}": {
       "get": {
+        "summary": "Get Matrix",
+        "description": "Retrieve matrix details by specifying the tenant and matrix IDs. Utilize a GET request for a comprehensive view of matrix configurations within your product configurator service.",
         "operationId": "ProductConfigurator_GetMatrix",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -389,18 +604,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "matrix"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       },
       "delete": {
+        "summary": "Delete Matrix",
+        "description": "Remove a specific matrix by specifying the tenant and matrix IDs. Ensure precision in matrix management with a straightforward DELETE request, simplifying the elimination of unwanted matrix configurations.",
         "operationId": "ProductConfigurator_DeleteMatrix",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratormatrixDeleteResponse"
             }
           },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
           "default": {
             "description": "An unexpected error response.",
             "schema": {
@@ -423,16 +663,41 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "matrix"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       },
       "put": {
+        "summary": "Update Matrix",
+        "description": "Modify an existing matrix by specifying the tenant and matrix IDs. Utilize a PUT request with updated matrix details in the body for seamless customization and fine-tuning of your product configurations. Keep your matrices in sync effortlessly.",
         "operationId": "ProductConfigurator_UpdateMatrix",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -465,18 +730,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "matrix"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/matrix/{matrixId}/page-size/{pageSize}/properties": {
       "post": {
+        "summary": "List Properties",
+        "description": "Retrieve a list of properties for a specific matrix based on tenant and matrix IDs. Customize results by specifying page size for efficient pagination. Submit an empty body to get all properties associated with the matrix.",
         "operationId": "ProductConfigurator_ListProperties",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/propertyListPropertiesResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -516,18 +806,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "property"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn}": {
       "delete": {
+        "summary": "Remove Pricelist from Matrix",
+        "description": "Remove a specific pricelist from a matrix by specifying the tenant, matrix, and pricelist IDs. Use a DELETE request for precise management of pricelist configurations within your product configurator service.",
         "operationId": "ProductConfigurator_RemovePricelistFromMatrix",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -558,18 +873,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "matrix"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/option/bulk": {
       "put": {
+        "summary": "Bulk Update Options",
+        "description": "Effortlessly update multiple options. Specify the tenant ID and submit a PUT request with the updated option details in the body. Streamline the customization of a multitude of options in one go.",
         "operationId": "ProductConfigurator_BulkUpdateOptions",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratoroptionBulkUpdateResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -596,18 +936,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/option/delete/bulk": {
       "post": {
+        "summary": "Bulk Delete Options",
+        "description": "Efficiently remove multiple options from configurations using a bulk delete operation. Specify the tenant ID and submit a POST request with the list of option IDs in the body for streamlined option management.",
         "operationId": "ProductConfigurator_BulkDeleteOptions",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratoroptionBulkDeleteResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -634,18 +999,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/option/{optionId}": {
       "delete": {
+        "summary": "Delete Option",
+        "description": "Remove a specific option by specifying the tenant and option IDs. Ensure precision in option management with a straightforward DELETE request, simplifying the elimination of unwanted configuration choices.",
         "operationId": "ProductConfigurator_DeleteOption",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratoroptionDeleteResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -670,16 +1060,41 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       },
       "put": {
+        "summary": "Update Option",
+        "description": "Modify an existing option by specifying the tenant and option IDs. Utilize a PUT request with updated option details in the body for seamless customization and fine-tuning of your product configurations.",
         "operationId": "ProductConfigurator_UpdateOption",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratoroptionEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -712,18 +1127,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/option/{sourceOptionId}/copy": {
       "post": {
+        "summary": "Copy Option",
+        "description": "Duplicate an existing option from the source to a specified tenant. Utilize a POST request with an empty body to initiate the copy process, creating a new option based on the source configuration. Streamline option replication effortlessly.",
         "operationId": "ProductConfigurator_CopyOption",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratoroptionEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -756,18 +1196,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/page-size/{pageSize}/dependencies": {
       "post": {
+        "summary": "List Dependencies",
+        "description": "Retrieve a list of dependencies based on the specified tenant ID. Customize results by specifying page size for efficient pagination. Submit an empty body to get all dependencies associated with the configurations.",
         "operationId": "ProductConfigurator_ListDependencies",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/dependencyListDependenciesResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -801,7 +1266,12 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "dependency"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
@@ -864,7 +1334,7 @@
           }
         ],
         "tags": [
-          "Configurator"
+          "configurator"
         ],
         "security": [
           {
@@ -875,12 +1345,32 @@
     },
     "/v1/{tenantId}/product/{productId}/configuration": {
       "get": {
+        "summary": "Get Available Configuration",
+        "description": "Retrieve available configurations for a specific product and tenant. Use a GET request for read-only access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.",
         "operationId": "ProductConfigurator_GetAvailableConfiguration",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/configurationGetAvailableConfigurationResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -911,16 +1401,41 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "configuration"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       },
       "post": {
+        "summary": "Get Available Configuration",
+        "description": "Retrieve available configurations for a specific product and tenant. Use a GET request for read-only access or submit additional criteria in the body of a POST request for tailored configuration results. Streamline the retrieval of configurations effortlessly.",
         "operationId": "ProductConfigurator_GetAvailableConfiguration2",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/configurationGetAvailableConfigurationResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -953,18 +1468,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "configuration"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/product/{productId}/configuration-from-selections": {
       "post": {
+        "summary": "Get Configuration from Selections",
+        "description": "Retrieve a configuration based on user selections for a specific product and tenant. Submit a POST request with user selections in the body to receive a tailored configuration. Enhance the user experience by dynamically generating configurations based on user input.",
         "operationId": "ProductConfigurator_GetConfigurationFromSelections",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/configurationGetConfigurationFromSelectionsResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -997,14 +1537,19 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "configuration"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/product/{productId}/create": {
       "post": {
-        "summary": "Create Product Configurator",
-        "description": "Create a new product configurator.",
+        "summary": "Create Configurator",
+        "description": "Create a new product configurator for a specified tenant and product. Submit the desired configuration details in the request body to initiate the creation process.",
         "operationId": "ProductConfigurator_CreateConfigurator",
         "responses": {
           "200": {
@@ -1055,7 +1600,7 @@
           }
         ],
         "tags": [
-          "Configurator"
+          "configurator"
         ],
         "security": [
           {
@@ -1074,6 +1619,12 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/configuratorListResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "401": {
@@ -1125,7 +1676,7 @@
           }
         ],
         "tags": [
-          "Configurator"
+          "configurator"
         ],
         "security": [
           {
@@ -1192,7 +1743,7 @@
           }
         ],
         "tags": [
-          "Configurator"
+          "configurator"
         ],
         "security": [
           {
@@ -1203,12 +1754,32 @@
     },
     "/v1/{tenantId}/product/{sourceConfiguratorId}/copy": {
       "post": {
+        "summary": "Copy Configurator",
+        "description": "Duplicate an existing product configurator from the source to the specified tenant and product. Submit an empty body to initiate the copy process, creating a new configuration based on the source.",
         "operationId": "ProductConfigurator_CopyConfigurator",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorconfiguratorEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1241,18 +1812,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "configurator"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/properties/bulk": {
       "put": {
+        "summary": "Bulk Update Properties",
+        "description": "Effortlessly update multiple properties. Specify the tenant ID and submit a PUT request with the updated property details in the body. Streamline the customization of a multitude of properties in one go.",
         "operationId": "ProductConfigurator_BulkUpdateProperties",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorpropertyBulkUpdateResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1279,18 +1875,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "property"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/property/create": {
       "post": {
+        "summary": "Create Property",
+        "description": "Integrate a new property into configurations by specifying the tenant ID. Use a POST request with the required property details in the body for seamless customization and expansion of product configurations.",
         "operationId": "ProductConfigurator_CreateProperty",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorpropertyEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1317,18 +1938,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "property"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/property/create/bulk": {
       "post": {
+        "summary": "Bulk Create Properties",
+        "description": "Efficiently add multiple properties to configurations with a bulk create operation. Specify the tenant ID and submit a POST request with the necessary property details in the body for streamlined property management.",
         "operationId": "ProductConfigurator_BulkCreateProperties",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorpropertyBulkCreateResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1355,18 +2001,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "property"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/property/{propertyId}": {
       "put": {
+        "summary": "Update Property",
+        "description": "Modify an existing property by specifying the tenant and property IDs. Utilize a PUT request with updated property details in the body for seamless customization and fine-tuning of your product configurations.",
         "operationId": "ProductConfigurator_UpdateProperty",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorpropertyEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1399,18 +2070,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "property"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/step/delete/bulk": {
       "post": {
+        "summary": "Bulk Delete Steps",
+        "description": "Efficiently remove multiple steps from a product configurator using a bulk delete operation. Specify the tenant ID and submit a POST request with the list of step IDs in the body for streamlined configuration management.",
         "operationId": "ProductConfigurator_BulkDeleteSteps",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
-              "$ref": "#/definitions/productconfiguratorstepBulkDeleteResponse"
+              "$ref": "#/definitions/productconfiguratoroptionBulkDeleteResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1437,18 +2133,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "step"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/step/{sourceStepId}/copy": {
       "post": {
+        "summary": "Copy Step",
+        "description": "Duplicate an existing step from the source to a specified tenant. Utilize a POST request with an empty body to initiate the copy process, creating a new step based on the source configuration. Streamline step replication effortlessly.",
         "operationId": "ProductConfigurator_CopyStep",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorstepEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1481,18 +2202,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "step"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/step/{stepId}": {
       "delete": {
+        "summary": "Delete Step",
+        "description": "Remove a step from a product configurator by specifying the tenant and step IDs. Ensure precision in configuration management with a straightforward DELETE request, simplifying the elimination of unwanted steps.",
         "operationId": "ProductConfigurator_DeleteStep",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
-              "$ref": "#/definitions/productconfiguratorstepDeleteResponse"
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1517,16 +2263,41 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "step"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       },
       "put": {
+        "summary": "Update Step",
+        "description": "Modify an existing step within a product configurator by specifying the tenant and step IDs. Utilize a PUT request with updated step details in the body for seamless customization and fine-tuning of your product configurations.",
         "operationId": "ProductConfigurator_UpdateStep",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratorstepEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1559,18 +2330,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "step"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/step/{stepId}/dependency/create": {
       "post": {
+        "summary": "Create Dependency",
+        "description": "Establish a new dependency for an existing step by specifying the tenant and step IDs. Utilize a POST request with the required dependency details in the body to seamlessly enhance the configuration logic of your product.",
         "operationId": "ProductConfigurator_CreateDependency",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratordependencyEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1603,18 +2399,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "dependency"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/step/{stepId}/option/create": {
       "post": {
+        "summary": "Create Option",
+        "description": "Integrate a new option into an existing step by specifying the tenant and step IDs. Use a POST request with the required option details in the body for seamless customization and expansion of product configurations.",
         "operationId": "ProductConfigurator_CreateOption",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratoroptionEntity"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1647,18 +2468,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/step/{stepId}/option/create/bulk": {
       "post": {
+        "summary": "Bulk Create Options",
+        "description": "Add multiple options to an existing step simultaneously. Submit a POST request with the necessary option details in the body to efficiently expand the configuration possibilities in bulk. Streamline large-scale option management effortlessly.",
         "operationId": "ProductConfigurator_BulkCreateOptions",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/productconfiguratoroptionBulkCreateResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1691,18 +2537,43 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     },
     "/v1/{tenantId}/step/{stepId}/page-size/{pageSize}/options": {
       "post": {
+        "summary": "List Options",
+        "description": "Retrieve a list of options for a specific step based on tenant and step IDs. Customize results by specifying page size for efficient pagination. Submit an empty body to get all options associated with the step.",
         "operationId": "ProductConfigurator_ListOptions",
         "responses": {
           "200": {
-            "description": "A successful response.",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/optionListOptionsResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request or Limit Exceeded",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
             }
           },
           "default": {
@@ -1742,7 +2613,12 @@
           }
         ],
         "tags": [
-          "ProductConfigurator"
+          "option"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
         ]
       }
     }

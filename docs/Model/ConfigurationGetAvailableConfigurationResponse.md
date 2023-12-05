@@ -1,11 +1,14 @@
 # # ConfigurationGetAvailableConfigurationResponse
 
+
 ## Properties
+
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**configurator** | [**\OpenAPI\Client\Model\ConfigurationConfigurator**](ConfigurationConfigurator.md) |  | [optional]
-**matched_properties** | [**\OpenAPI\Client\Model\ConfigurationProperty[]**](ConfigurationProperty.md) |  | [optional]
-**selections** | [**\OpenAPI\Client\Model\ConfigurationSelection[]**](ConfigurationSelection.md) |  | [optional]
+**configurator**| [**\GeminiCommerce\ProductConfigurator\Model\ConfigurationConfigurator**](ConfigurationConfigurator.md) |   | [optional]
+**matched_properties**| [**\GeminiCommerce\ProductConfigurator\Model\ConfigurationProperty[]**](ConfigurationProperty.md) |   | [optional]
+**selections**| [**\GeminiCommerce\ProductConfigurator\Model\ConfigurationSelection[]**](ConfigurationSelection.md) |   | [optional]
+
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

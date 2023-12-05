@@ -1,24 +1,27 @@
-# OpenAPI\Client\ConfiguratorApi
+# GeminiCommerce\ProductConfigurator\ConfiguratorApi
 
 All URIs are relative to https://product-configurator.api.gogemini.io, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**productConfiguratorCreateConfigurator()**](ConfiguratorApi.md#productConfiguratorCreateConfigurator) | **POST** /v1/{tenantId}/product/{productId}/create | Create Product Configurator |
+| [**productConfiguratorCopyConfigurator()**](ConfiguratorApi.md#productConfiguratorCopyConfigurator) | **POST** /v1/{tenantId}/product/{sourceConfiguratorId}/copy | Copy Configurator |
+| [**productConfiguratorCreateConfigurator()**](ConfiguratorApi.md#productConfiguratorCreateConfigurator) | **POST** /v1/{tenantId}/product/{productId}/create | Create Configurator |
+| [**productConfiguratorDeleteConfigurator()**](ConfiguratorApi.md#productConfiguratorDeleteConfigurator) | **DELETE** /v1/{tenantId}/configurator/{configuratorId} | Delete Configurator |
 | [**productConfiguratorGetConfiguratorByProductId()**](ConfiguratorApi.md#productConfiguratorGetConfiguratorByProductId) | **GET** /v1/{tenantId}/product/{productId} | Get Product Configurator by Product ID |
 | [**productConfiguratorGetConfiguratorByProductId2()**](ConfiguratorApi.md#productConfiguratorGetConfiguratorByProductId2) | **GET** /v1/{tenantId}/product/{productId}/status/{status} | Get Product Configurator by Product ID |
 | [**productConfiguratorListConfigurators()**](ConfiguratorApi.md#productConfiguratorListConfigurators) | **POST** /v1/{tenantId}/product/{productId}/page-size/{pageSize}/configurators | List Product Configurators |
+| [**productConfiguratorUpdateConfigurator()**](ConfiguratorApi.md#productConfiguratorUpdateConfigurator) | **PUT** /v1/{tenantId}/configurator/{configuratorId} | Update Configurator |
 
 
-## `productConfiguratorCreateConfigurator()`
+## `productConfiguratorCopyConfigurator()`
 
 ```php
-productConfiguratorCreateConfigurator($tenant_id, $product_id, $body): \OpenAPI\Client\Model\ProductconfiguratorconfiguratorCreateRequest
+productConfiguratorCopyConfigurator($tenant_id, $source_configurator_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity
 ```
 
-Create Product Configurator
+Copy Configurator
 
-Create a new product configurator.
+Duplicate an existing product configurator from the source to the specified tenant and product. Submit an empty body to initiate the copy process, creating a new configuration based on the source.
 
 ### Example
 
@@ -28,10 +31,74 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ConfiguratorApi(
+$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ConfiguratorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenant_id = 'tenant_id_example'; // string
+$source_configurator_id = 'source_configurator_id_example'; // string
+$body = new \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCopyRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCopyRequest
+
+try {
+    $result = $apiInstance->productConfiguratorCopyConfigurator($tenant_id, $source_configurator_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfiguratorApi->productConfiguratorCopyConfigurator: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **source_configurator_id** | **string**|  | |
+| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCopyRequest**](../Model/ProductconfiguratorconfiguratorCopyRequest.md)|  | |
+
+### Return type
+
+[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity**](../Model/ProductconfiguratorconfiguratorEntity.md)
+
+### Authorization
+
+[standardAuthorization](../../README.md#standardAuthorization)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `productConfiguratorCreateConfigurator()`
+
+```php
+productConfiguratorCreateConfigurator($tenant_id, $product_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCreateRequest
+```
+
+Create Configurator
+
+Create a new product configurator for a specified tenant and product. Submit the desired configuration details in the request body to initiate the creation process.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: standardAuthorization
+$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ConfiguratorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -39,7 +106,7 @@ $apiInstance = new OpenAPI\Client\Api\ConfiguratorApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $product_id = 'product_id_example'; // string
-$body = new \OpenAPI\Client\Model\ProductconfiguratorconfiguratorCreateRequest(); // \OpenAPI\Client\Model\ProductconfiguratorconfiguratorCreateRequest
+$body = new \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCreateRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCreateRequest
 
 try {
     $result = $apiInstance->productConfiguratorCreateConfigurator($tenant_id, $product_id, $body);
@@ -55,11 +122,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **product_id** | **string**|  | |
-| **body** | [**\OpenAPI\Client\Model\ProductconfiguratorconfiguratorCreateRequest**](../Model/ProductconfiguratorconfiguratorCreateRequest.md)|  | |
+| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCreateRequest**](../Model/ProductconfiguratorconfiguratorCreateRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ProductconfiguratorconfiguratorCreateRequest**](../Model/ProductconfiguratorconfiguratorCreateRequest.md)
+[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorCreateRequest**](../Model/ProductconfiguratorconfiguratorCreateRequest.md)
 
 ### Authorization
 
@@ -74,10 +141,72 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `productConfiguratorDeleteConfigurator()`
+
+```php
+productConfiguratorDeleteConfigurator($tenant_id, $configurator_id): object
+```
+
+Delete Configurator
+
+Delete a product configurator by specifying the tenant and configurator IDs. Ensure precise removal of unwanted configurations with a straightforward DELETE request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: standardAuthorization
+$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ConfiguratorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenant_id = 'tenant_id_example'; // string
+$configurator_id = 'configurator_id_example'; // string
+
+try {
+    $result = $apiInstance->productConfiguratorDeleteConfigurator($tenant_id, $configurator_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfiguratorApi->productConfiguratorDeleteConfigurator: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **configurator_id** | **string**|  | |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[standardAuthorization](../../README.md#standardAuthorization)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
 ## `productConfiguratorGetConfiguratorByProductId()`
 
 ```php
-productConfiguratorGetConfiguratorByProductId($tenant_id, $product_id, $status): \OpenAPI\Client\Model\ProductconfiguratorconfiguratorEntity
+productConfiguratorGetConfiguratorByProductId($tenant_id, $product_id, $status): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity
 ```
 
 Get Product Configurator by Product ID
@@ -92,10 +221,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ConfiguratorApi(
+$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ConfiguratorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -123,7 +252,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ProductconfiguratorconfiguratorEntity**](../Model/ProductconfiguratorconfiguratorEntity.md)
+[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity**](../Model/ProductconfiguratorconfiguratorEntity.md)
 
 ### Authorization
 
@@ -141,7 +270,7 @@ try {
 ## `productConfiguratorGetConfiguratorByProductId2()`
 
 ```php
-productConfiguratorGetConfiguratorByProductId2($tenant_id, $product_id, $status): \OpenAPI\Client\Model\ProductconfiguratorconfiguratorEntity
+productConfiguratorGetConfiguratorByProductId2($tenant_id, $product_id, $status): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity
 ```
 
 Get Product Configurator by Product ID
@@ -156,10 +285,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ConfiguratorApi(
+$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ConfiguratorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -187,7 +316,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ProductconfiguratorconfiguratorEntity**](../Model/ProductconfiguratorconfiguratorEntity.md)
+[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity**](../Model/ProductconfiguratorconfiguratorEntity.md)
 
 ### Authorization
 
@@ -205,7 +334,7 @@ try {
 ## `productConfiguratorListConfigurators()`
 
 ```php
-productConfiguratorListConfigurators($tenant_id, $product_id, $page_size, $body): \OpenAPI\Client\Model\ConfiguratorListResponse
+productConfiguratorListConfigurators($tenant_id, $product_id, $page_size, $body): \GeminiCommerce\ProductConfigurator\Model\ConfiguratorListResponse
 ```
 
 List Product Configurators
@@ -220,10 +349,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new OpenAPI\Client\Api\ConfiguratorApi(
+$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ConfiguratorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -232,7 +361,7 @@ $apiInstance = new OpenAPI\Client\Api\ConfiguratorApi(
 $tenant_id = 'tenant_id_example'; // string
 $product_id = 'product_id_example'; // string
 $page_size = 56; // int
-$body = new \OpenAPI\Client\Model\ConfiguratorListRequest(); // \OpenAPI\Client\Model\ConfiguratorListRequest
+$body = new \GeminiCommerce\ProductConfigurator\Model\ConfiguratorListRequest(); // \GeminiCommerce\ProductConfigurator\Model\ConfiguratorListRequest
 
 try {
     $result = $apiInstance->productConfiguratorListConfigurators($tenant_id, $product_id, $page_size, $body);
@@ -249,11 +378,75 @@ try {
 | **tenant_id** | **string**|  | |
 | **product_id** | **string**|  | |
 | **page_size** | **int**|  | |
-| **body** | [**\OpenAPI\Client\Model\ConfiguratorListRequest**](../Model/ConfiguratorListRequest.md)|  | |
+| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ConfiguratorListRequest**](../Model/ConfiguratorListRequest.md)|  | |
 
 ### Return type
 
-[**\OpenAPI\Client\Model\ConfiguratorListResponse**](../Model/ConfiguratorListResponse.md)
+[**\GeminiCommerce\ProductConfigurator\Model\ConfiguratorListResponse**](../Model/ConfiguratorListResponse.md)
+
+### Authorization
+
+[standardAuthorization](../../README.md#standardAuthorization)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `productConfiguratorUpdateConfigurator()`
+
+```php
+productConfiguratorUpdateConfigurator($tenant_id, $configurator_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity
+```
+
+Update Configurator
+
+Modify an existing product configurator by specifying the tenant and configurator IDs. Use a PUT request with the updated configuration details in the body to seamlessly update and manage product configurations
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure OAuth2 access token for authorization: standardAuthorization
+$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ConfiguratorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenant_id = 'tenant_id_example'; // string
+$configurator_id = 'configurator_id_example'; // string
+$body = new \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorUpdateRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorUpdateRequest
+
+try {
+    $result = $apiInstance->productConfiguratorUpdateConfigurator($tenant_id, $configurator_id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfiguratorApi->productConfiguratorUpdateConfigurator: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **string**|  | |
+| **configurator_id** | **string**|  | |
+| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorUpdateRequest**](../Model/ProductconfiguratorconfiguratorUpdateRequest.md)|  | |
+
+### Return type
+
+[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorconfiguratorEntity**](../Model/ProductconfiguratorconfiguratorEntity.md)
 
 ### Authorization
 
