@@ -1,4 +1,4 @@
-# product-configuratorlicenseName&#x3D;AGPL-3.0
+# OpenAPIClient-php
 
 ## Introduction
 
@@ -90,7 +90,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/product-configuratorlicenseName&#x3D;AGPL-3.0/vendor/autoload.php');
+require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
 ```
 
 ## Getting Started

@@ -18,5 +18,5 @@ generate-php-client:
 	generate -i php-client-generator/modules/proto/${lower_service}/${lower_service}.swagger.json \
 	--git-repo-id php-client-${service} --git-user-id gemini-commerce --git-host github.com \
 	-g php -t php-client-generator/templates/php -o php-client-${lower_service} \
-	--additional-properties ${artifact_version},enumClassPrefix=true,structPrefix=true,\
-	packageName="${lower_service}"licenseName=AGPL-3.0,invokerPackage="GeminiCommerce\\${ucf_service_non_dashed}"
+	--additional-properties ${artifact_version}\
+	licenseName=AGPL-3.0,invokerPackage="GeminiCommerce\\${ucf_service_non_dashed}"
