@@ -1,0 +1,3422 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Product Configurator Service",
+    "version": "v1",
+    "contact": {
+      "name": "Gemini Team",
+      "email": "info@gemini-commerce.com"
+    },
+    "license": {
+      "name": "Gemini fair use license",
+      "url": "https://gemini-commerce.com/api/fair-use-license"
+    }
+  },
+  "host": "product-configurator.api.gogemini.io",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/{tenantId}/configurator/{configuratorId}": {
+      "delete": {
+        "operationId": "ProductConfigurator_DeleteConfigurator",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configuratorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "put": {
+        "operationId": "ProductConfigurator_UpdateConfigurator",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configuratorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/configurator/{configuratorId}/page-size/{pageSize}/matrices": {
+      "post": {
+        "operationId": "ProductConfigurator_ListMatrices",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/matrixListMatricesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configuratorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/matrixListMatricesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/configurator/{configuratorId}/step/create": {
+      "post": {
+        "operationId": "ProductConfigurator_CreateStep",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configuratorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/configurator/{configuratorId}/step/create/bulk": {
+      "post": {
+        "operationId": "ProductConfigurator_BulkCreateSteps",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepBulkCreateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configuratorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepBulkCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/dependency/{dependencyId}": {
+      "delete": {
+        "operationId": "ProductConfigurator_DeleteDependency",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratordependencyDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dependencyId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "put": {
+        "operationId": "ProductConfigurator_UpdateDependency",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratordependencyEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "dependencyId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratordependencyUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/matrix/create": {
+      "post": {
+        "operationId": "ProductConfigurator_CreateMatrix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/matrix/{matrixId}": {
+      "get": {
+        "operationId": "ProductConfigurator_GetMatrix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matrixId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "delete": {
+        "operationId": "ProductConfigurator_DeleteMatrix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matrixId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "put": {
+        "operationId": "ProductConfigurator_UpdateMatrix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matrixId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/matrix/{matrixId}/page-size/{pageSize}/properties": {
+      "post": {
+        "operationId": "ProductConfigurator_ListProperties",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/propertyListPropertiesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matrixId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/propertyListPropertiesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/matrix/{matrixId}/pricelist/{pricelistGrn}": {
+      "delete": {
+        "operationId": "ProductConfigurator_RemovePricelistFromMatrix",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratormatrixEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "matrixId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pricelistGrn",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/option/bulk": {
+      "put": {
+        "operationId": "ProductConfigurator_BulkUpdateOptions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionBulkUpdateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionBulkUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/option/delete/bulk": {
+      "post": {
+        "operationId": "ProductConfigurator_BulkDeleteOptions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionBulkDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionBulkDeleteRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/option/{optionId}": {
+      "delete": {
+        "operationId": "ProductConfigurator_DeleteOption",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "optionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "put": {
+        "operationId": "ProductConfigurator_UpdateOption",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "optionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/option/{sourceOptionId}/copy": {
+      "post": {
+        "operationId": "ProductConfigurator_CopyOption",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sourceOptionId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionCopyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/page-size/{pageSize}/dependencies": {
+      "post": {
+        "operationId": "ProductConfigurator_ListDependencies",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/dependencyListDependenciesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/dependencyListDependenciesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{productId}": {
+      "get": {
+        "summary": "Get Product Configurator by Product ID",
+        "description": "Get a product configurator by product ID.",
+        "operationId": "ProductConfigurator_GetConfiguratorByProductId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorEntity"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "UNKNOWN",
+              "ACTIVE",
+              "DRAFT",
+              "DISABLED"
+            ],
+            "default": "UNKNOWN"
+          }
+        ],
+        "tags": [
+          "Configurator"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{productId}/configuration": {
+      "get": {
+        "operationId": "ProductConfigurator_GetAvailableConfiguration",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/configurationGetAvailableConfigurationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "configuratorId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "post": {
+        "operationId": "ProductConfigurator_GetAvailableConfiguration2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/configurationGetAvailableConfigurationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/configurationGetAvailableConfigurationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{productId}/configuration-from-selections": {
+      "post": {
+        "operationId": "ProductConfigurator_GetConfigurationFromSelections",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/configurationGetConfigurationFromSelectionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/configurationGetConfigurationFromSelectionsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{productId}/create": {
+      "post": {
+        "summary": "Create Product Configurator",
+        "description": "Create a new product configurator.",
+        "operationId": "ProductConfigurator_CreateConfigurator",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorCreateRequest"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Configurator"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{productId}/page-size/{pageSize}/configurators": {
+      "post": {
+        "summary": "List Product Configurators",
+        "description": "List all product configurators.",
+        "operationId": "ProductConfigurator_ListConfigurators",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/configuratorListResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/configuratorListRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Configurator"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{productId}/status/{status}": {
+      "get": {
+        "summary": "Get Product Configurator by Product ID",
+        "description": "Get a product configurator by product ID.",
+        "operationId": "ProductConfigurator_GetConfiguratorByProductId2",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorEntity"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "500": {
+            "description": "An internal error occurred is thrown when an incompatible payload is sent",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "UNKNOWN",
+              "ACTIVE",
+              "DRAFT",
+              "DISABLED"
+            ]
+          }
+        ],
+        "tags": [
+          "Configurator"
+        ],
+        "security": [
+          {
+            "standardAuthorization": []
+          }
+        ]
+      }
+    },
+    "/v1/{tenantId}/product/{sourceConfiguratorId}/copy": {
+      "post": {
+        "operationId": "ProductConfigurator_CopyConfigurator",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sourceConfiguratorId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorconfiguratorCopyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/properties/bulk": {
+      "put": {
+        "operationId": "ProductConfigurator_BulkUpdateProperties",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyBulkUpdateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyBulkUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/property/create": {
+      "post": {
+        "operationId": "ProductConfigurator_CreateProperty",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/property/create/bulk": {
+      "post": {
+        "operationId": "ProductConfigurator_BulkCreateProperties",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyBulkCreateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyBulkCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/property/{propertyId}": {
+      "put": {
+        "operationId": "ProductConfigurator_UpdateProperty",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "propertyId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorpropertyUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/step/delete/bulk": {
+      "post": {
+        "operationId": "ProductConfigurator_BulkDeleteSteps",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepBulkDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepBulkDeleteRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/step/{sourceStepId}/copy": {
+      "post": {
+        "operationId": "ProductConfigurator_CopyStep",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sourceStepId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepCopyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/step/{stepId}": {
+      "delete": {
+        "operationId": "ProductConfigurator_DeleteStep",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepDeleteResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stepId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      },
+      "put": {
+        "operationId": "ProductConfigurator_UpdateStep",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stepId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratorstepUpdateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/step/{stepId}/dependency/create": {
+      "post": {
+        "operationId": "ProductConfigurator_CreateDependency",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratordependencyEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stepId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratordependencyCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/step/{stepId}/option/create": {
+      "post": {
+        "operationId": "ProductConfigurator_CreateOption",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionEntity"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stepId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/step/{stepId}/option/create/bulk": {
+      "post": {
+        "operationId": "ProductConfigurator_BulkCreateOptions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionBulkCreateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stepId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productconfiguratoroptionBulkCreateRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    },
+    "/v1/{tenantId}/step/{stepId}/page-size/{pageSize}/options": {
+      "post": {
+        "operationId": "ProductConfigurator_ListOptions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/optionListOptionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/googlerpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stepId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/optionListOptionsRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ProductConfigurator"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ConfigurationStepOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        },
+        "optionProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationOptionProperty"
+          }
+        },
+        "hasQuantity": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ListMatricesRequestFilter": {
+      "type": "object",
+      "properties": {
+        "propertyType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorPropertyType"
+          }
+        },
+        "propertyKey": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "configurationConfigurationStep": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConfigurationStepOption"
+          }
+        },
+        "hasMultipleSelection": {
+          "type": "boolean"
+        }
+      }
+    },
+    "configurationConfigurator": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorconfigurationStep"
+          }
+        }
+      }
+    },
+    "configurationGetAvailableConfigurationRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "selections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationSelection"
+          }
+        },
+        "propertyFilters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationPropertyFilter"
+          }
+        },
+        "configuratorId": {
+          "type": "string"
+        }
+      }
+    },
+    "configurationGetAvailableConfigurationResponse": {
+      "type": "object",
+      "properties": {
+        "configurator": {
+          "$ref": "#/definitions/configurationConfigurator"
+        },
+        "matchedProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationProperty"
+          }
+        },
+        "selections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationSelection"
+          }
+        }
+      }
+    },
+    "configurationGetConfigurationFromSelectionsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "selections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationSelection"
+          }
+        }
+      }
+    },
+    "configurationGetConfigurationFromSelectionsResponse": {
+      "type": "object",
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationConfigurationStep"
+          }
+        },
+        "matchedProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationProperty"
+          }
+        }
+      }
+    },
+    "configurationOptionProperty": {
+      "type": "object",
+      "properties": {
+        "propertyId": {
+          "type": "string"
+        },
+        "propertyValue": {
+          "type": "string"
+        },
+        "propertyType": {
+          "$ref": "#/definitions/productconfiguratorPropertyType"
+        },
+        "subtractToGetVariation": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "subtract_to_get_variation is a list of values and is used to calculate the variation from the property value."
+        }
+      }
+    },
+    "configurationProperty": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "optionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "propertyKey": {
+          "type": "string"
+        },
+        "propertyValue": {
+          "type": "string"
+        },
+        "propertyType": {
+          "$ref": "#/definitions/productconfiguratorPropertyType"
+        },
+        "propertyMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
+        }
+      }
+    },
+    "configurationPropertyFilter": {
+      "type": "object",
+      "properties": {
+        "genericProperty": {
+          "$ref": "#/definitions/configurationPropertyFilterGenericProperty"
+        },
+        "priceProperty": {
+          "$ref": "#/definitions/configurationPropertyFilterPriceProperty"
+        },
+        "weightProperty": {
+          "$ref": "#/definitions/configurationPropertyFilterWeightProperty"
+        }
+      }
+    },
+    "configurationPropertyFilterGenericProperty": {
+      "type": "object",
+      "properties": {
+        "propertyKey": {
+          "type": "string"
+        }
+      }
+    },
+    "configurationPropertyFilterPriceProperty": {
+      "type": "object"
+    },
+    "configurationPropertyFilterWeightProperty": {
+      "type": "object"
+    },
+    "configurationSelection": {
+      "type": "object",
+      "properties": {
+        "stepId": {
+          "type": "string"
+        },
+        "optionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "configuratorListRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "configuratorListResponse": {
+      "type": "object",
+      "properties": {
+        "configurators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorconfiguratorEntity"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "dependencyCondition": {
+      "type": "object",
+      "properties": {
+        "optionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "the option ids that must be selected by previous steps in order for this condition to be true"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/dependencyCondition"
+          },
+          "title": "the conditions that must be true for this condition to be true"
+        },
+        "type": {
+          "$ref": "#/definitions/productconfiguratordependencyType",
+          "title": "the type of condition, both option_ids and condition checks are determined by this"
+        }
+      },
+      "title": "A dependency condition\n  options_ids and condition are mutually exclusive"
+    },
+    "dependencyListDependenciesRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "stepIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "dependencyListDependenciesResponse": {
+      "type": "object",
+      "properties": {
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratordependencyEntity"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "googlerpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "localisationLocalizedText": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "matrixGenericType": {
+      "type": "object",
+      "properties": {
+        "propertyKey": {
+          "type": "string"
+        }
+      }
+    },
+    "matrixListMatricesRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "configuratorId": {
+          "type": "string"
+        },
+        "filterMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filter": {
+          "$ref": "#/definitions/ListMatricesRequestFilter"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "matrixListMatricesResponse": {
+      "type": "object",
+      "properties": {
+        "matrices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratormatrixEntity"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "matrixPriceType": {
+      "type": "object",
+      "properties": {
+        "pricelistGrns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "matrixWeightType": {
+      "type": "object",
+      "properties": {
+        "weightUnit": {
+          "$ref": "#/definitions/productconfiguratorWeightUnit"
+        }
+      }
+    },
+    "optionListOptionsRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "stepId": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "optionListOptionsResponse": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratoroptionEntity"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "optionSwatch": {
+      "type": "object",
+      "properties": {
+        "grn": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "productconfiguratorMoney": {
+      "type": "object",
+      "properties": {
+        "units": {
+          "type": "string",
+          "format": "int64",
+          "description": "The whole units of the amount.\nFor example if `currencyCode` is `\"USD\"`, then 1 unit is one US dollar."
+        },
+        "micros": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Number of micro (10^-6) units of the amount.\nThe value must be between -999,999 and +999,999 inclusive.\nIf `units` is positive, `micros` must be positive or zero.\nIf `units` is zero, `micros` can be positive, zero, or negative.\nIf `units` is negative, `micros` must be negative or zero.\nFor example $-1.75 is represented as `units`=-1 and `micros`=-750,000."
+        }
+      },
+      "description": "Represents an amount of money."
+    },
+    "productconfiguratorPropertyMode": {
+      "type": "string",
+      "enum": [
+        "PROPERTY_MODE_UNKNOWN",
+        "PROPERTY_MODE_FINAL",
+        "PROPERTY_MODE_INCREMENTAL"
+      ],
+      "default": "PROPERTY_MODE_UNKNOWN"
+    },
+    "productconfiguratorPropertyType": {
+      "type": "string",
+      "enum": [
+        "PROPERTY_TYPE_UNKNOWN",
+        "PROPERTY_TYPE_GENERIC",
+        "PROPERTY_TYPE_PRICE",
+        "PROPERTY_TYPE_WEIGHT"
+      ],
+      "default": "PROPERTY_TYPE_UNKNOWN"
+    },
+    "productconfiguratorWeightUnit": {
+      "type": "string",
+      "enum": [
+        "WEIGHT_UNIT_UNKNOWN",
+        "WEIGHT_UNIT_KILOGRAM",
+        "WEIGHT_UNIT_POUND"
+      ],
+      "default": "WEIGHT_UNIT_UNKNOWN"
+    },
+    "productconfiguratorconfigurationOption": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "optionProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/configurationOptionProperty"
+          }
+        },
+        "hasQuantity": {
+          "type": "boolean"
+        }
+      }
+    },
+    "productconfiguratorconfigurationStep": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "description": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "subjectToStepId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorconfigurationOption"
+          }
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "hasMultipleSelection": {
+          "type": "boolean"
+        }
+      }
+    },
+    "productconfiguratorconfiguratorCopyRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sourceConfiguratorId": {
+          "type": "string"
+        },
+        "targetProductId": {
+          "type": "string"
+        },
+        "copyDependencies": {
+          "type": "boolean"
+        },
+        "copyMatrices": {
+          "type": "boolean"
+        }
+      }
+    },
+    "productconfiguratorconfiguratorCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "productconfiguratorconfiguratorDeleteResponse": {
+      "type": "object"
+    },
+    "productconfiguratorconfiguratorEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/productconfiguratorconfiguratorStatus"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorstepEntity"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "productconfiguratorconfiguratorStatus": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "ACTIVE",
+        "DRAFT",
+        "DISABLED"
+      ],
+      "default": "UNKNOWN"
+    },
+    "productconfiguratorconfiguratorUpdatePayload": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/productconfiguratorconfiguratorStatus"
+        }
+      }
+    },
+    "productconfiguratorconfiguratorUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "configuratorId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratorconfiguratorUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratordependencyCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "stepId": {
+          "type": "string"
+        },
+        "optionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "The option ids owned by the step id, that will be shown if the condition is met"
+        },
+        "condition": {
+          "$ref": "#/definitions/dependencyCondition"
+        }
+      }
+    },
+    "productconfiguratordependencyDeleteResponse": {
+      "type": "object"
+    },
+    "productconfiguratordependencyEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "optionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "The option ids owned by the step id, that will be shown if the condition is met"
+        },
+        "condition": {
+          "$ref": "#/definitions/dependencyCondition"
+        },
+        "stepId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "productconfiguratordependencyType": {
+      "type": "string",
+      "enum": [
+        "UNKNOWN",
+        "ALL",
+        "ANY"
+      ],
+      "default": "UNKNOWN"
+    },
+    "productconfiguratordependencyUpdatePayload": {
+      "type": "object",
+      "properties": {
+        "optionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "condition": {
+          "$ref": "#/definitions/dependencyCondition"
+        }
+      }
+    },
+    "productconfiguratordependencyUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "dependencyId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratordependencyUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratormatrixCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "configuratorId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "genericType": {
+          "$ref": "#/definitions/matrixGenericType"
+        },
+        "priceType": {
+          "$ref": "#/definitions/matrixPriceType"
+        },
+        "weightType": {
+          "$ref": "#/definitions/matrixWeightType"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratormatrixStep"
+          }
+        },
+        "propertiesMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
+        }
+      }
+    },
+    "productconfiguratormatrixDeleteResponse": {
+      "type": "object"
+    },
+    "productconfiguratormatrixEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "configuratorId": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "defaultPropertyId": {
+          "type": "string"
+        },
+        "propertiesMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
+        },
+        "genericType": {
+          "$ref": "#/definitions/matrixGenericType"
+        },
+        "priceType": {
+          "$ref": "#/definitions/matrixPriceType"
+        },
+        "weightType": {
+          "$ref": "#/definitions/matrixWeightType"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratormatrixStep"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "productconfiguratormatrixStep": {
+      "type": "object",
+      "properties": {
+        "stepId": {
+          "type": "string"
+        }
+      }
+    },
+    "productconfiguratormatrixUpdatePayload": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "defaultPropertyId": {
+          "type": "string",
+          "description": "default_property_id is the id of the property\nthat will be used as the starting point to calculate the differences between the properties."
+        },
+        "propertiesMode": {
+          "$ref": "#/definitions/productconfiguratorPropertyMode"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratormatrixStep"
+          }
+        }
+      }
+    },
+    "productconfiguratormatrixUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratormatrixUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratoroptionBulkCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "stepId": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratoroptionBulkCreateRequestCreateEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratoroptionBulkCreateRequestCreateEntity": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "externalReferenceId": {
+          "type": "string"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        }
+      }
+    },
+    "productconfiguratoroptionBulkCreateResponse": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratoroptionEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratoroptionBulkDeleteRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "optionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratoroptionBulkDeleteResponse": {
+      "type": "object"
+    },
+    "productconfiguratoroptionBulkUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratoroptionBulkUpdateRequestUpdateEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratoroptionBulkUpdateRequestUpdateEntity": {
+      "type": "object",
+      "properties": {
+        "optionId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratoroptionUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratoroptionBulkUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratoroptionEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratoroptionCopyRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sourceOptionId": {
+          "type": "string"
+        },
+        "targetStepId": {
+          "type": "string"
+        }
+      }
+    },
+    "productconfiguratoroptionCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "stepId": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "externalReferenceId": {
+          "type": "string"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        }
+      }
+    },
+    "productconfiguratoroptionDeleteResponse": {
+      "type": "object"
+    },
+    "productconfiguratoroptionEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        },
+        "externalReferenceId": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "productconfiguratoroptionUpdatePayload": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "externalReferenceId": {
+          "type": "string"
+        },
+        "swatch": {
+          "$ref": "#/definitions/optionSwatch"
+        }
+      }
+    },
+    "productconfiguratoroptionUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "optionId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratoroptionUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratorpropertyBulkCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
+          "type": "string"
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorpropertyBulkCreateRequestCreateEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratorpropertyBulkCreateRequestCreateEntity": {
+      "type": "object",
+      "properties": {
+        "stepIdToOptionId": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "genericProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyGenericProperty"
+        },
+        "priceProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyPriceProperty"
+        },
+        "weightProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyWeightProperty"
+        }
+      }
+    },
+    "productconfiguratorpropertyBulkCreateResponse": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorpropertyEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratorpropertyBulkUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
+          "type": "string"
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorpropertyBulkUpdateRequestUpdateEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratorpropertyBulkUpdateRequestUpdateEntity": {
+      "type": "object",
+      "properties": {
+        "propertyId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratorpropertyUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratorpropertyBulkUpdateResponse": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorpropertyEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratorpropertyCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
+          "type": "string"
+        },
+        "stepIdToOptionId": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "genericProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyGenericProperty"
+        },
+        "priceProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyPriceProperty"
+        },
+        "weightProperty": {
+          "$ref": "#/definitions/productconfiguratorpropertyWeightProperty"
+        }
+      }
+    },
+    "productconfiguratorpropertyEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "stepIdToOptionId": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "propertyKey": {
+          "type": "string"
+        },
+        "propertyValue": {
+          "type": "string"
+        },
+        "propertyType": {
+          "$ref": "#/definitions/productconfiguratorPropertyType"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "productconfiguratorpropertyGenericProperty": {
+      "type": "object",
+      "properties": {
+        "propertyKey": {
+          "type": "string"
+        },
+        "propertyValue": {
+          "type": "string"
+        }
+      }
+    },
+    "productconfiguratorpropertyPriceProperty": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/definitions/productconfiguratorMoney"
+        },
+        "pricelistGrn": {
+          "type": "string"
+        }
+      }
+    },
+    "productconfiguratorpropertyUpdatePayload": {
+      "type": "object",
+      "properties": {
+        "genericProperty": {
+          "$ref": "#/definitions/propertyUpdatePayloadGenericProperty"
+        },
+        "weightProperty": {
+          "$ref": "#/definitions/propertyUpdatePayloadWeightProperty"
+        },
+        "priceProperty": {
+          "$ref": "#/definitions/propertyUpdatePayloadPriceProperty"
+        }
+      }
+    },
+    "productconfiguratorpropertyUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
+          "type": "string"
+        },
+        "propertyId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratorpropertyUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratorpropertyWeightProperty": {
+      "type": "object",
+      "properties": {
+        "weight": {
+          "type": "number",
+          "format": "double"
+        },
+        "weightUnit": {
+          "$ref": "#/definitions/productconfiguratorWeightUnit"
+        }
+      }
+    },
+    "productconfiguratorstepBulkCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "configuratorId": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorstepBulkCreateRequestCreateEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratorstepBulkCreateRequestCreateEntity": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "description": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "subjectToStepId": {
+          "type": "string"
+        },
+        "hasMultipleSelection": {
+          "type": "boolean"
+        },
+        "optionsHaveQuantity": {
+          "type": "boolean"
+        }
+      }
+    },
+    "productconfiguratorstepBulkCreateResponse": {
+      "type": "object",
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorstepEntity"
+          }
+        }
+      }
+    },
+    "productconfiguratorstepBulkDeleteRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "stepIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "productconfiguratorstepBulkDeleteResponse": {
+      "type": "object"
+    },
+    "productconfiguratorstepCopyRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "sourceStepId": {
+          "type": "string"
+        },
+        "targetConfiguratorId": {
+          "type": "string"
+        }
+      }
+    },
+    "productconfiguratorstepCreateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "configuratorId": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "description": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "subjectToStepId": {
+          "type": "string"
+        },
+        "hasMultipleSelection": {
+          "type": "boolean"
+        },
+        "optionsHaveQuantity": {
+          "type": "boolean"
+        }
+      }
+    },
+    "productconfiguratorstepDeleteResponse": {
+      "type": "object"
+    },
+    "productconfiguratorstepEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "grn": {
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "description": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "subjectToStepId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratoroptionEntity"
+          }
+        },
+        "hasMultipleSelection": {
+          "type": "boolean"
+        },
+        "optionsHaveQuantity": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "productconfiguratorstepUpdatePayload": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "description": {
+          "$ref": "#/definitions/localisationLocalizedText"
+        },
+        "position": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "isRequired": {
+          "type": "boolean"
+        },
+        "subjectToStepId": {
+          "type": "string"
+        },
+        "hasMultipleSelection": {
+          "type": "boolean"
+        },
+        "optionsHaveQuantity": {
+          "type": "boolean"
+        }
+      }
+    },
+    "productconfiguratorstepUpdateRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "stepId": {
+          "type": "string"
+        },
+        "payload": {
+          "$ref": "#/definitions/productconfiguratorstepUpdatePayload"
+        },
+        "payloadMask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "propertyListPropertiesRequest": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "type": "string"
+        },
+        "matrixId": {
+          "type": "string"
+        },
+        "pageSize": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "propertyListPropertiesResponse": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productconfiguratorpropertyEntity"
+          }
+        },
+        "nextPageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "propertyUpdatePayloadGenericProperty": {
+      "type": "object",
+      "properties": {
+        "propertyValue": {
+          "type": "string"
+        }
+      }
+    },
+    "propertyUpdatePayloadPriceProperty": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "$ref": "#/definitions/productconfiguratorMoney"
+        },
+        "pricelistGrn": {
+          "type": "string"
+        }
+      }
+    },
+    "propertyUpdatePayloadWeightProperty": {
+      "type": "object",
+      "properties": {
+        "weight": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "standardAuthorization": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://iambackoffice.gogemini.io/iambackoffice.IamBackoffice/Login"
+    }
+  }
+}
