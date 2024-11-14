@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductConfigurator\PropertyApi
+# OpenAPI\Client\PropertyApi
 
 All URIs are relative to https://product-configurator.api.gogemini.io, except if the operation defines another base path.
 
@@ -14,7 +14,7 @@ All URIs are relative to https://product-configurator.api.gogemini.io, except if
 ## `productConfiguratorBulkCreateProperties()`
 
 ```php
-productConfiguratorBulkCreateProperties($tenant_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyBulkCreateResponse
+productConfiguratorBulkCreateProperties($tenant_id, $body): \OpenAPI\Client\Model\ProductconfiguratorpropertyBulkCreateResponse
 ```
 
 Bulk Create Properties
@@ -29,22 +29,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\PropertyApi(
+$apiInstance = new OpenAPI\Client\Api\PropertyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $tenant_id = 'tenant_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorBulkCreatePropertiesRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorBulkCreatePropertiesRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorBulkCreatePropertiesRequest(); // \OpenAPI\Client\Model\ProductConfiguratorBulkCreatePropertiesRequest
 
 try {
     $result = $apiInstance->productConfiguratorBulkCreateProperties($tenant_id, $body);
@@ -59,11 +59,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorBulkCreatePropertiesRequest**](../Model/ProductConfiguratorBulkCreatePropertiesRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorBulkCreatePropertiesRequest**](../Model/ProductConfiguratorBulkCreatePropertiesRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyBulkCreateResponse**](../Model/ProductconfiguratorpropertyBulkCreateResponse.md)
+[**\OpenAPI\Client\Model\ProductconfiguratorpropertyBulkCreateResponse**](../Model/ProductconfiguratorpropertyBulkCreateResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ try {
 ## `productConfiguratorBulkUpdateProperties()`
 
 ```php
-productConfiguratorBulkUpdateProperties($tenant_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyBulkUpdateResponse
+productConfiguratorBulkUpdateProperties($tenant_id, $body): \OpenAPI\Client\Model\ProductconfiguratorpropertyBulkUpdateResponse
 ```
 
 Bulk Update Properties
@@ -96,22 +96,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\PropertyApi(
+$apiInstance = new OpenAPI\Client\Api\PropertyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $tenant_id = 'tenant_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorBulkUpdatePropertiesRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorBulkUpdatePropertiesRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorBulkUpdatePropertiesRequest(); // \OpenAPI\Client\Model\ProductConfiguratorBulkUpdatePropertiesRequest
 
 try {
     $result = $apiInstance->productConfiguratorBulkUpdateProperties($tenant_id, $body);
@@ -126,11 +126,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorBulkUpdatePropertiesRequest**](../Model/ProductConfiguratorBulkUpdatePropertiesRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorBulkUpdatePropertiesRequest**](../Model/ProductConfiguratorBulkUpdatePropertiesRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyBulkUpdateResponse**](../Model/ProductconfiguratorpropertyBulkUpdateResponse.md)
+[**\OpenAPI\Client\Model\ProductconfiguratorpropertyBulkUpdateResponse**](../Model/ProductconfiguratorpropertyBulkUpdateResponse.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ try {
 ## `productConfiguratorCreateProperty()`
 
 ```php
-productConfiguratorCreateProperty($tenant_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyEntity
+productConfiguratorCreateProperty($tenant_id, $body): \OpenAPI\Client\Model\ProductconfiguratorpropertyEntity
 ```
 
 Create Property
@@ -163,22 +163,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\PropertyApi(
+$apiInstance = new OpenAPI\Client\Api\PropertyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $tenant_id = 'tenant_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreatePropertyRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreatePropertyRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorCreatePropertyRequest(); // \OpenAPI\Client\Model\ProductConfiguratorCreatePropertyRequest
 
 try {
     $result = $apiInstance->productConfiguratorCreateProperty($tenant_id, $body);
@@ -193,11 +193,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreatePropertyRequest**](../Model/ProductConfiguratorCreatePropertyRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorCreatePropertyRequest**](../Model/ProductConfiguratorCreatePropertyRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyEntity**](../Model/ProductconfiguratorpropertyEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratorpropertyEntity**](../Model/ProductconfiguratorpropertyEntity.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ try {
 ## `productConfiguratorListProperties()`
 
 ```php
-productConfiguratorListProperties($tenant_id, $matrix_id, $page_size, $body): \GeminiCommerce\ProductConfigurator\Model\PropertyListPropertiesResponse
+productConfiguratorListProperties($tenant_id, $matrix_id, $page_size, $body): \OpenAPI\Client\Model\PropertyListPropertiesResponse
 ```
 
 List Properties
@@ -230,15 +230,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\PropertyApi(
+$apiInstance = new OpenAPI\Client\Api\PropertyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -247,7 +247,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\PropertyApi(
 $tenant_id = 'tenant_id_example'; // string
 $matrix_id = 'matrix_id_example'; // string
 $page_size = 'page_size_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListPropertiesRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListPropertiesRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorListPropertiesRequest(); // \OpenAPI\Client\Model\ProductConfiguratorListPropertiesRequest
 
 try {
     $result = $apiInstance->productConfiguratorListProperties($tenant_id, $matrix_id, $page_size, $body);
@@ -264,11 +264,11 @@ try {
 | **tenant_id** | **string**|  | |
 | **matrix_id** | **string**|  | |
 | **page_size** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListPropertiesRequest**](../Model/ProductConfiguratorListPropertiesRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorListPropertiesRequest**](../Model/ProductConfiguratorListPropertiesRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\PropertyListPropertiesResponse**](../Model/PropertyListPropertiesResponse.md)
+[**\OpenAPI\Client\Model\PropertyListPropertiesResponse**](../Model/PropertyListPropertiesResponse.md)
 
 ### Authorization
 
@@ -286,7 +286,7 @@ try {
 ## `productConfiguratorUpdateProperty()`
 
 ```php
-productConfiguratorUpdateProperty($tenant_id, $property_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyEntity
+productConfiguratorUpdateProperty($tenant_id, $property_id, $body): \OpenAPI\Client\Model\ProductconfiguratorpropertyEntity
 ```
 
 Update Property
@@ -301,15 +301,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\PropertyApi(
+$apiInstance = new OpenAPI\Client\Api\PropertyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -317,7 +317,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\PropertyApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $property_id = 'property_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdatePropertyRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdatePropertyRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorUpdatePropertyRequest(); // \OpenAPI\Client\Model\ProductConfiguratorUpdatePropertyRequest
 
 try {
     $result = $apiInstance->productConfiguratorUpdateProperty($tenant_id, $property_id, $body);
@@ -333,11 +333,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **property_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdatePropertyRequest**](../Model/ProductConfiguratorUpdatePropertyRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorUpdatePropertyRequest**](../Model/ProductConfiguratorUpdatePropertyRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyEntity**](../Model/ProductconfiguratorpropertyEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratorpropertyEntity**](../Model/ProductconfiguratorpropertyEntity.md)
 
 ### Authorization
 

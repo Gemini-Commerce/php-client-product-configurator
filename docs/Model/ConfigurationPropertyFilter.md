@@ -1,14 +1,15 @@
 # # ConfigurationPropertyFilter
 
 
-## Properties
+## Properties 
 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**generic_property**| [**\GeminiCommerce\ProductConfigurator\Model\ConfigurationPropertyFilterGenericProperty**](ConfigurationPropertyFilterGenericProperty.md) |   | [optional]
+**generic_property**| [**\OpenAPI\Client\Model\ConfigurationPropertyFilterGenericProperty**](ConfigurationPropertyFilterGenericProperty.md) |   | [optional]
 **price_property**| **object** |   | [optional]
 **weight_property**| **object** |   | [optional]
 
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
+

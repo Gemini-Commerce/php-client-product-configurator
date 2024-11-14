@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductConfigurator\MatrixApi
+# OpenAPI\Client\MatrixApi
 
 All URIs are relative to https://product-configurator.api.gogemini.io, except if the operation defines another base path.
 
@@ -15,7 +15,7 @@ All URIs are relative to https://product-configurator.api.gogemini.io, except if
 ## `productConfiguratorCreateMatrix()`
 
 ```php
-productConfiguratorCreateMatrix($tenant_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity
+productConfiguratorCreateMatrix($tenant_id, $body): \OpenAPI\Client\Model\ProductconfiguratormatrixEntity
 ```
 
 Create Matrix
@@ -30,22 +30,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
+$apiInstance = new OpenAPI\Client\Api\MatrixApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $tenant_id = 'tenant_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreateMatrixRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreateMatrixRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorCreateMatrixRequest(); // \OpenAPI\Client\Model\ProductConfiguratorCreateMatrixRequest
 
 try {
     $result = $apiInstance->productConfiguratorCreateMatrix($tenant_id, $body);
@@ -60,11 +60,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreateMatrixRequest**](../Model/ProductConfiguratorCreateMatrixRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorCreateMatrixRequest**](../Model/ProductConfiguratorCreateMatrixRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
 
 ### Authorization
 
@@ -97,15 +97,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
+$apiInstance = new OpenAPI\Client\Api\MatrixApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -149,7 +149,7 @@ try {
 ## `productConfiguratorGetMatrix()`
 
 ```php
-productConfiguratorGetMatrix($tenant_id, $matrix_id): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity
+productConfiguratorGetMatrix($tenant_id, $matrix_id): \OpenAPI\Client\Model\ProductconfiguratormatrixEntity
 ```
 
 Get Matrix
@@ -164,15 +164,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
+$apiInstance = new OpenAPI\Client\Api\MatrixApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -198,7 +198,7 @@ try {
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ try {
 ## `productConfiguratorListMatrices()`
 
 ```php
-productConfiguratorListMatrices($tenant_id, $configurator_id, $page_size, $body): \GeminiCommerce\ProductConfigurator\Model\MatrixListMatricesResponse
+productConfiguratorListMatrices($tenant_id, $configurator_id, $page_size, $body): \OpenAPI\Client\Model\MatrixListMatricesResponse
 ```
 
 List Matrices
@@ -231,15 +231,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
+$apiInstance = new OpenAPI\Client\Api\MatrixApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -248,7 +248,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
 $tenant_id = 'tenant_id_example'; // string
 $configurator_id = 'configurator_id_example'; // string
 $page_size = 'page_size_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListMatricesRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListMatricesRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorListMatricesRequest(); // \OpenAPI\Client\Model\ProductConfiguratorListMatricesRequest
 
 try {
     $result = $apiInstance->productConfiguratorListMatrices($tenant_id, $configurator_id, $page_size, $body);
@@ -265,11 +265,11 @@ try {
 | **tenant_id** | **string**|  | |
 | **configurator_id** | **string**|  | |
 | **page_size** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListMatricesRequest**](../Model/ProductConfiguratorListMatricesRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorListMatricesRequest**](../Model/ProductConfiguratorListMatricesRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\MatrixListMatricesResponse**](../Model/MatrixListMatricesResponse.md)
+[**\OpenAPI\Client\Model\MatrixListMatricesResponse**](../Model/MatrixListMatricesResponse.md)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ try {
 ## `productConfiguratorRemovePricelistFromMatrix()`
 
 ```php
-productConfiguratorRemovePricelistFromMatrix($tenant_id, $matrix_id, $pricelist_grn): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity
+productConfiguratorRemovePricelistFromMatrix($tenant_id, $matrix_id, $pricelist_grn): \OpenAPI\Client\Model\ProductconfiguratormatrixEntity
 ```
 
 Remove Pricelist from Matrix
@@ -302,15 +302,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
+$apiInstance = new OpenAPI\Client\Api\MatrixApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -338,7 +338,7 @@ try {
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ try {
 ## `productConfiguratorUpdateMatrix()`
 
 ```php
-productConfiguratorUpdateMatrix($tenant_id, $matrix_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity
+productConfiguratorUpdateMatrix($tenant_id, $matrix_id, $body): \OpenAPI\Client\Model\ProductconfiguratormatrixEntity
 ```
 
 Update Matrix
@@ -371,15 +371,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
+$apiInstance = new OpenAPI\Client\Api\MatrixApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -387,7 +387,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\MatrixApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $matrix_id = 'matrix_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdateMatrixRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdateMatrixRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorUpdateMatrixRequest(); // \OpenAPI\Client\Model\ProductConfiguratorUpdateMatrixRequest
 
 try {
     $result = $apiInstance->productConfiguratorUpdateMatrix($tenant_id, $matrix_id, $body);
@@ -403,11 +403,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **matrix_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdateMatrixRequest**](../Model/ProductConfiguratorUpdateMatrixRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorUpdateMatrixRequest**](../Model/ProductConfiguratorUpdateMatrixRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratormatrixEntity**](../Model/ProductconfiguratormatrixEntity.md)
 
 ### Authorization
 

@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductConfigurator\DependencyApi
+# OpenAPI\Client\DependencyApi
 
 All URIs are relative to https://product-configurator.api.gogemini.io, except if the operation defines another base path.
 
@@ -13,7 +13,7 @@ All URIs are relative to https://product-configurator.api.gogemini.io, except if
 ## `productConfiguratorCreateDependency()`
 
 ```php
-productConfiguratorCreateDependency($tenant_id, $step_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratordependencyEntity
+productConfiguratorCreateDependency($tenant_id, $step_id, $body): \OpenAPI\Client\Model\ProductconfiguratordependencyEntity
 ```
 
 Create Dependency
@@ -28,15 +28,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\DependencyApi(
+$apiInstance = new OpenAPI\Client\Api\DependencyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -44,7 +44,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\DependencyApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $step_id = 'step_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreateDependencyRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreateDependencyRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorCreateDependencyRequest(); // \OpenAPI\Client\Model\ProductConfiguratorCreateDependencyRequest
 
 try {
     $result = $apiInstance->productConfiguratorCreateDependency($tenant_id, $step_id, $body);
@@ -60,11 +60,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **step_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorCreateDependencyRequest**](../Model/ProductConfiguratorCreateDependencyRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorCreateDependencyRequest**](../Model/ProductConfiguratorCreateDependencyRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratordependencyEntity**](../Model/ProductconfiguratordependencyEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratordependencyEntity**](../Model/ProductconfiguratordependencyEntity.md)
 
 ### Authorization
 
@@ -97,15 +97,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\DependencyApi(
+$apiInstance = new OpenAPI\Client\Api\DependencyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -149,7 +149,7 @@ try {
 ## `productConfiguratorListDependencies()`
 
 ```php
-productConfiguratorListDependencies($tenant_id, $page_size, $body): \GeminiCommerce\ProductConfigurator\Model\DependencyListDependenciesResponse
+productConfiguratorListDependencies($tenant_id, $page_size, $body): \OpenAPI\Client\Model\DependencyListDependenciesResponse
 ```
 
 List Dependencies
@@ -164,15 +164,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\DependencyApi(
+$apiInstance = new OpenAPI\Client\Api\DependencyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -180,7 +180,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\DependencyApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $page_size = 56; // int
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListDependenciesRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListDependenciesRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorListDependenciesRequest(); // \OpenAPI\Client\Model\ProductConfiguratorListDependenciesRequest
 
 try {
     $result = $apiInstance->productConfiguratorListDependencies($tenant_id, $page_size, $body);
@@ -196,11 +196,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **page_size** | **int**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListDependenciesRequest**](../Model/ProductConfiguratorListDependenciesRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorListDependenciesRequest**](../Model/ProductConfiguratorListDependenciesRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\DependencyListDependenciesResponse**](../Model/DependencyListDependenciesResponse.md)
+[**\OpenAPI\Client\Model\DependencyListDependenciesResponse**](../Model/DependencyListDependenciesResponse.md)
 
 ### Authorization
 
@@ -218,7 +218,7 @@ try {
 ## `productConfiguratorUpdateDependency()`
 
 ```php
-productConfiguratorUpdateDependency($tenant_id, $dependency_id, $body): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratordependencyEntity
+productConfiguratorUpdateDependency($tenant_id, $dependency_id, $body): \OpenAPI\Client\Model\ProductconfiguratordependencyEntity
 ```
 
 Update Dependency
@@ -233,15 +233,15 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 // Configure OAuth2 access token for authorization: standardAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: APIAuthorization
-$config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = GeminiCommerce\ProductConfigurator\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\DependencyApi(
+$apiInstance = new OpenAPI\Client\Api\DependencyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -249,7 +249,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\DependencyApi(
 );
 $tenant_id = 'tenant_id_example'; // string
 $dependency_id = 'dependency_id_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdateDependencyRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdateDependencyRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorUpdateDependencyRequest(); // \OpenAPI\Client\Model\ProductConfiguratorUpdateDependencyRequest
 
 try {
     $result = $apiInstance->productConfiguratorUpdateDependency($tenant_id, $dependency_id, $body);
@@ -265,11 +265,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **string**|  | |
 | **dependency_id** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorUpdateDependencyRequest**](../Model/ProductConfiguratorUpdateDependencyRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorUpdateDependencyRequest**](../Model/ProductConfiguratorUpdateDependencyRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratordependencyEntity**](../Model/ProductconfiguratordependencyEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratordependencyEntity**](../Model/ProductconfiguratordependencyEntity.md)
 
 ### Authorization
 

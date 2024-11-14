@@ -1,4 +1,4 @@
-# GeminiCommerce\ProductConfigurator\ProductConfiguratorApi
+# OpenAPI\Client\ProductConfiguratorApi
 
 All URIs are relative to https://product-configurator.api.gogemini.io, except if the operation defines another base path.
 
@@ -11,7 +11,7 @@ All URIs are relative to https://product-configurator.api.gogemini.io, except if
 ## `productConfiguratorGetProperty()`
 
 ```php
-productConfiguratorGetProperty($tenant_id, $property_id): \GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyEntity
+productConfiguratorGetProperty($tenant_id, $property_id): \OpenAPI\Client\Model\ProductconfiguratorpropertyEntity
 ```
 
 
@@ -24,7 +24,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ProductConfiguratorApi(
+$apiInstance = new OpenAPI\Client\Api\ProductConfiguratorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -49,7 +49,7 @@ try {
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\ProductconfiguratorpropertyEntity**](../Model/ProductconfiguratorpropertyEntity.md)
+[**\OpenAPI\Client\Model\ProductconfiguratorpropertyEntity**](../Model/ProductconfiguratorpropertyEntity.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 ## `productConfiguratorListPropertiesByConfiguration()`
 
 ```php
-productConfiguratorListPropertiesByConfiguration($tenant_id, $configurator_id, $page_size, $body): \GeminiCommerce\ProductConfigurator\Model\PropertyListPropertiesByConfigurationResponse
+productConfiguratorListPropertiesByConfiguration($tenant_id, $configurator_id, $page_size, $body): \OpenAPI\Client\Model\PropertyListPropertiesByConfigurationResponse
 ```
 
 
@@ -80,7 +80,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new GeminiCommerce\ProductConfigurator\Api\ProductConfiguratorApi(
+$apiInstance = new OpenAPI\Client\Api\ProductConfiguratorApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -88,7 +88,7 @@ $apiInstance = new GeminiCommerce\ProductConfigurator\Api\ProductConfiguratorApi
 $tenant_id = 'tenant_id_example'; // string
 $configurator_id = 'configurator_id_example'; // string
 $page_size = 'page_size_example'; // string
-$body = new \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListPropertiesByConfigurationRequest(); // \GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListPropertiesByConfigurationRequest
+$body = new \OpenAPI\Client\Model\ProductConfiguratorListPropertiesByConfigurationRequest(); // \OpenAPI\Client\Model\ProductConfiguratorListPropertiesByConfigurationRequest
 
 try {
     $result = $apiInstance->productConfiguratorListPropertiesByConfiguration($tenant_id, $configurator_id, $page_size, $body);
@@ -105,11 +105,11 @@ try {
 | **tenant_id** | **string**|  | |
 | **configurator_id** | **string**|  | |
 | **page_size** | **string**|  | |
-| **body** | [**\GeminiCommerce\ProductConfigurator\Model\ProductConfiguratorListPropertiesByConfigurationRequest**](../Model/ProductConfiguratorListPropertiesByConfigurationRequest.md)|  | |
+| **body** | [**\OpenAPI\Client\Model\ProductConfiguratorListPropertiesByConfigurationRequest**](../Model/ProductConfiguratorListPropertiesByConfigurationRequest.md)|  | |
 
 ### Return type
 
-[**\GeminiCommerce\ProductConfigurator\Model\PropertyListPropertiesByConfigurationResponse**](../Model/PropertyListPropertiesByConfigurationResponse.md)
+[**\OpenAPI\Client\Model\PropertyListPropertiesByConfigurationResponse**](../Model/PropertyListPropertiesByConfigurationResponse.md)
 
 ### Authorization
 
